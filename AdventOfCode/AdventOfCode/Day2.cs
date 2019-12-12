@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode
 {
@@ -12,10 +10,8 @@ namespace AdventOfCode
         private readonly string input;
         private List<int> program;
 
-        public Day2(string inputString)
+        public Day2(string inputString) : base("Day Two", inputString)
         {
-            Name = "Day Two";
-            InputString = inputString;
             this.input = File.ReadAllText(InputString);
             SolvePuzzles();
         }

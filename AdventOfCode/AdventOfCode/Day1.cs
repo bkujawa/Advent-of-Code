@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode
 {
@@ -11,10 +8,8 @@ namespace AdventOfCode
     {
         private List<double> input = new List<double>();
 
-        public Day1(string inputString)
+        public Day1(string inputString) : base("Day One", inputString)
         {
-            Name = "Day One";
-            InputString = inputString;
             var inputInString = File.ReadAllLines(InputString);
             foreach(var input in inputInString)
             {

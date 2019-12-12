@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode
 {
@@ -13,10 +11,8 @@ namespace AdventOfCode
         private int upperBoundary;
         private List<int> numbers;
 
-        public Day4(string inputString)
+        public Day4(string inputString) : base("Day Four", inputString)
         {
-            Name = "Day Four";
-            InputString = inputString;
             var input = File.ReadAllLines(InputString);
             this.lowerBoundary = int.Parse(input[0]);
             this.upperBoundary = int.Parse(input[1]);

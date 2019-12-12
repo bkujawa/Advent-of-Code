@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode
 {
     public class PuzzleSolver
     {
-        protected virtual string Name { get; set; }
-        protected virtual string InputString { get; set; }
+        protected virtual string Name { get; private set; }
+        protected virtual string InputString { get; private set; }
+
+        protected PuzzleSolver(string name, string inputString)
+        {
+            Name = name;
+            InputString = inputString;
+        }
 
         protected void Print()
         {
