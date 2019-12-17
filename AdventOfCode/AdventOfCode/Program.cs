@@ -17,6 +17,7 @@ namespace AdventOfCode
             puzzleSolver = new Day1(InputStrings.Day1);
             puzzleSolver = new Day2(InputStrings.Day2);
             puzzleSolver = new Day4(InputStrings.Day4);
+            puzzleSolver = new Day5(InputStrings.Day5);
             puzzleSolver = new Day8(InputStrings.Day8);
         }
     }

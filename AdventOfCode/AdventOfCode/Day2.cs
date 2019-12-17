@@ -25,28 +25,28 @@ namespace AdventOfCode
 
         private void PuzzleOne(int parameterIndexOne, int parameterIndexTwo, bool print = false)
         {
-            program = new List<int>(this.input.Split(',').Select(x => int.Parse(x)));
-            program[1] = parameterIndexOne;
-            program[2] = parameterIndexTwo;
+            this.program = new List<int>(this.input.Split(',').Select(x => int.Parse(x)));
+            this.program[1] = parameterIndexOne;
+            this.program[2] = parameterIndexTwo;
 
-            for (int i = 0; i < program.Count; i = i + 4)
+            for (int i = 0; i < this.program.Count; i = i + 4)
             {
-                if (program[i] == 1)
+                if (this.program[i] == 1)
                 {
-                    AddOpCode(i);
+                    Intcode.OpCode1(this.program, i);
                 }
-                else if (program[i] == 2)
+                else if (this.program[i] == 2)
                 {
-                    MultiplyOpCode(i);
+                    Intcode.OpCode2(this.program, i);
                 }
-                else if (program[i] == 99)
+                else if (this.program[i] == 99)
                 {
                     break;
                 }
             }
             if (print)
             {
-                Console.WriteLine("Puzzle one answer: " + program[0]);
+                Console.WriteLine("Puzzle one answer: " + this.program[0]);
             }
         }
 
@@ -57,30 +57,12 @@ namespace AdventOfCode
                 for (int j = 0; j < 99; ++j)
                 {
                     PuzzleOne(i, j);
-                    if (program[0] == 19690720)
+                    if (this.program[0] == 19690720)
                     {
-                        Console.WriteLine($"Puzzle two answer: 100 * {program[1]} + {program[2]} = {100 * program[1] + program[2]}");
+                        Console.WriteLine($"Puzzle two answer: 100 * {this.program[1]} + {this.program[2]} = {100 * this.program[1] + this.program[2]}");
                     }
                 }
             }
-        }
-
-        private void AddOpCode(int index)
-        {
-            int opCodeArgument1 = program[++index];
-            int opCodeArgument2 = program[++index];
-            int opCodeArgument3 = program[++index];
-
-            program[opCodeArgument3] = program[opCodeArgument1] + program[opCodeArgument2];
-        }
-
-        private void MultiplyOpCode(int index)
-        {
-            int opCodeArgument1 = program[++index];
-            int opCodeArgument2 = program[++index];
-            int opCodeArgument3 = program[++index];
-
-            program[opCodeArgument3] = program[opCodeArgument1] * program[opCodeArgument2];
         }
     }
 }
